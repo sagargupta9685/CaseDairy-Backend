@@ -19,6 +19,9 @@ if (!fs.existsSync(uploadsDir)) {
 }
 // Ensure this is the correct path
 
+
+
+
 //require('./scheduler');
 
 dotenv.config();
@@ -26,6 +29,29 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+
+
+const allowedOrigins = [
+  "https://case-diary.vercel.app", // Deployed frontend
+  "http://localhost:5173"          // Local frontend for testing
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
+
+// ✅ Handle preflight requests
+app.options("*", cors());
+
  
 
 // ✅ Serve static files from uploads folder
