@@ -1,5 +1,6 @@
 // const sql = require('mssql');
-const sql = require('mssql/msnodesqlv8');
+const sql = require("mssql");
+
 
 
 const config = {
