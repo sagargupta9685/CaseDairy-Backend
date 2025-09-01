@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
 const caseRoutes = require('./routes/caseRoutes');
 const addcaseRoutes = require('./routes/addcaseRoute');
-const hearingRoutes = require('./routes/caseRoutes');
+ 
 const landRoutes = require('./routes/landRoutes');
 const miscellaneousRoutes = require('./routes/miscellaneousRoutes');
  
