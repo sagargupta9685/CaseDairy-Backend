@@ -6,14 +6,14 @@ const { protect } = require('../middleware/authMiddleware');
 
 // Case routes
 router.post('/', protect, caseController.addCase);
-router.get('/user/:userId', protect, caseController.getCasesByUser);   // ✅ renamed
+router.get('/user/:userId', protect, caseController.getCasesByUser);
 router.put('/complete/:id', protect, caseController.markCaseComplete);
 
 // Add case routes
 router.post('/add', protect, addcaseController.addCase);
-router.get('/user/:userId/all', protect, addcaseController.getAllCasesByUser);  // ✅ renamed
+router.get('/user/:userId/all', protect, addcaseController.getAllCasesByUser);
 
-// Hearing routes
+// Hearing routes (inside cases)
 router.post('/add-hearing', protect, caseController.addHearingDate);
 router.get('/hearings/:caseId', protect, caseController.getHearingDatesByCase);
 
