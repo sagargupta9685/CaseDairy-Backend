@@ -8,9 +8,11 @@ const addcaseController = require('../controllers/addcaseController');
 const { protect } = require('../middleware/authMiddleware');
  
 router.post('/add', protect, upload.array('documents', 5), addcaseController.addCase);
-router.get('/:userId', protect,addcaseController.getAllCasesByUser);
+router.get('/user/:userId/all', protect, addcaseController.getAllCasesByUser);
+
 // authMiddleware.protect
- router.put('/update-status/:id', addcaseController.updateCaseStatus);
+router.put('/update-status/:id', protect, addcaseController.updateCaseStatus);
+
  
  
 
